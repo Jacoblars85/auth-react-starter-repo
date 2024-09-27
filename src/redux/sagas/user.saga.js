@@ -63,79 +63,12 @@ function* deleteAccount() {
   }
 }
 
-//give user coins when they won a battle
-function* giveUserAllForWinning(action) {
-  // console.log('action.payload', action.payload);
-  try {
-    const response = yield axios({
-      method: 'PUT',
-      url: `/api/user/won/battle`,
-      data: action.payload
-  })
-    yield put({
-      type: 'FETCH_USER',
-    })
-  } catch (error) {
-    console.log('Unable to put coins and changed level won for win to server', error);
-  }
-}
-
-
-function* userLeveledUp(action) {
-  // console.log('action.payload', action.payload);
-  try {
-  const levelUpResponse = yield axios({
-    method: 'PUT',
-    url: `/api/user/level/up`,
-    data: action.payload
-})
-    yield put({
-      type: 'FETCH_USER',
-    })
-  } catch (error) {
-    console.log('Unable to put reward from level up to server', error);
-  }
-}
-
-//turns watched credits to true
-function* completeWatchingCredits(action) {
-  // console.log('action.payload', action.payload);
-  try {
-    const response = yield axios.put("/api/user/credits");
-    yield put({
-      type: 'FETCH_USER',
-    })
-  } catch (error) {
-    console.log('Unable to finish watching credits', error);
-  }
-}
-
-function* userOpenReward(action) {
-  console.log('action.payload', action.payload);
-  try {
-  const levelUpResponse = yield axios({
-    method: 'PUT',
-    url: `/api/user/reward/open`,
-    data: action.payload
-})
-    yield put({
-      type: 'SAGA_FETCH_IVENTORY',
-    })
-  } catch (error) {
-    console.log('Unable to put open reward to server', error);
-  }
-}
-
 
 
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeLatest('SAGA_CHANGE_USERNAME', changeUsername);
   yield takeLatest('SAGA_DELETE_ACCOUNT', deleteAccount);
-  yield takeLatest('SAGA_USER_WON_THE_BATTLE', giveUserAllForWinning);
-  yield takeLatest('SAGA_WON_AND_LEVELED_UP', userLeveledUp);
-  yield takeLatest('SAGA_USER_WATCHED_CREDITS', completeWatchingCredits);
-  yield takeLatest('SAGA_OPEN_BOX', userOpenReward);
 }
 
 export default userSaga;
