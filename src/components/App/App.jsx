@@ -7,18 +7,10 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import AboutPage from '../AboutPage/AboutPage';
 import HomePage from '../HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import Campaign from '../Campaign/Campaign';
-import Battle from '../Battle/Battle';
-import Shop from '../Shop/Shop';
-import Characters from '../Characters/Characters';
-import Inventory from '../Inventory/Inventory';
-import SecretCampaign from '../SecretCampaign/SecretCampaign';
-import EndingCredits from '../EndingCredits/EndingCredits';
 import './App.css';
 
 function App() {
@@ -61,37 +53,6 @@ function App() {
             path="/home"
           >
             <HomePage />
-          </ProtectedRoute>
-
-
-
-
-          <ProtectedRoute exact path="/shop">
-            <Shop />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/inventory">
-            <Inventory />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/characters">
-            <Characters />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/battle/:id">
-            <Battle />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/campaign">
-            <Campaign />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/secretCampaign">
-            <SecretCampaign />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/credits">
-            <EndingCredits />
           </ProtectedRoute>
 
 
