@@ -10,15 +10,7 @@ function LandingPage() {
 
   return (
     <div>
-      <div className="bowsermonMainHeader">
-        <img
-          src="images/bowserLogoRedCircle.webp"
-          height="150px"
-          width="150px"
-        />
-
-        <h1>Bowsermon</h1>
-      </div>
+        <h1>Auth React Starter</h1>
 
       <RegisterForm />
 
